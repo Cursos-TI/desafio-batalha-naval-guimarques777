@@ -1,45 +1,40 @@
 #include <stdio.h>
 
+#define N 10
 
-int main(){
+int main() {
+    int tabuleiro[N][N] = {0}; // inicializa tudo com 0 (água)
 
-int campo[10][10] = {0};
+    // --- Dois navios horizontais/verticais ---
+    // Navio horizontal (linha 2, colunas 1 até 4)
+    for (int j = 0; j < 3; j++) {
+        tabuleiro[5][j] = 3;
+    }
 
+    // Navio vertical (coluna 6, linhas 5 até 8)
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[3+i][5] = 3;
+    }
 
+    // --- Dois navios diagonais ---
+    // Diagonal principal (linha = coluna)
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[i][i] = 3;
+    }
 
-int navio1[3]= {3,3,3};
-int navio2[3]= {3,3,3};
+    // Diagonal secundária (linha + coluna = 9)
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[i][9 - i] = 3;
+    }
 
-int linha1 = 2;
-int coluna1= 4;
-
-for(int i = 0; i < 3; i++){
-campo[linha1][coluna1 + i] = navio1[i];
-}
-
-int linha2 = 7;
-int coluna2 = 9;
-
-for (int j = 0; j < 3 ; j++){
-campo[linha2 + j][coluna2]= navio2[j];
-
-}
-
-printf ("Tabuleiro\n");
-for(int i=0; i < 10; i++ ){
-   for(int j = 0; j < 10; j++){
-      printf("%d", campo[i][j]);
-}
-
-printf("\n");
-
-
-
-}
-
-
-
-
+    // --- Exibir tabuleiro ---
+    printf("\n--- Tabuleiro Batalha Naval ---\n\n");
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf("%2d ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
 
     return 0;
 }
