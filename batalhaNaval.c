@@ -5,24 +5,24 @@
 int main() {
     int tabuleiro[N][N] = {0}; // inicializa tudo com 0 (água)
 
-    // --- Dois navios horizontais/verticais ---
-    // Navio horizontal (linha 2, colunas 1 até 4)
+    // navio horizontal
+   
     for (int j = 0; j < 3; j++) {
         tabuleiro[5][j] = 3;
     }
 
-    // Navio vertical (coluna 6, linhas 5 até 8)
+    // Navio vertical 
     for (int i = 0; i < 3; i++) {
         tabuleiro[3+i][5] = 3;
     }
 
-    // --- Dois navios diagonais ---
-    // Diagonal principal (linha = coluna)
+    
+    // Diagonal principal 
     for (int i = 0; i < 3; i++) {
         tabuleiro[i][i] = 3;
     }
 
-    // Diagonal secundária (linha + coluna = 9)
+    // Diagonal secundária 
     for (int i = 0; i < 3; i++) {
         tabuleiro[i][9 - i] = 3;
     }
